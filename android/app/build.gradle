@@ -39,6 +39,16 @@ android {
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
+        coffee {
+            res {
+                srcDirs 'src/coffee/res'
+            }
+        }
+        tea {
+            res {
+                srcDirs 'src/tea/res'
+            }
+        }
     }
 
     defaultConfig {
@@ -55,6 +65,23 @@ android {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.debug
+        }
+    }
+
+    flavorDimensions "app"
+
+    productFlavors{
+        coffee{
+            dimension "app"
+            applicationId "com.example.flavor_application.coffee"
+            versionCode 1
+            versionName "1.0"
+        }
+        tea{
+            dimension "app"
+            applicationId "com.example.flavor_application.tea"
+            versionCode 1
+            versionName "1.0"
         }
     }
 }
